@@ -643,6 +643,7 @@
       <label class="group-label">Motor power (HPc)</label>
       <select id="f-hpc">
         <option value="">Any</option>
+        <option value="0.333">⅓ HPc</option>
         <option value="0.5">½ HPc</option>
         <option value="0.75">¾ HPc</option>
         <option value="1">1 HPc</option>
@@ -801,7 +802,7 @@ function applyFilters() {
       const needed = parseInt(f.weight);
       if (!m.maxWeight || m.maxWeight < needed) return false;
     }
-    if (f.hpc && m.hpc !== parseFloat(f.hpc)) return false;
+    if (f.hpc && Math.round(m.hpc * 1000) / 1000 !== parseFloat(f.hpc)) return false;
     if (f.battery === 'included'    && m.battery !== 'included') return false;
     if (f.battery === 'notincluded' && m.battery === 'included') return false;
     if (f.wifi === 'yes' && !m.wifi)  return false;
@@ -828,9 +829,9 @@ function applyFilters() {
 function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : ''; }
 
 function formatHpc(h) {
-  const map = { 0.5: '½', 0.75: '¾', 1: '1', 1.25: '1¼', 2: '2' };
+  const map = { 0.333: '⅓', 0.5: '½', 0.75: '¾', 1: '1', 1.25: '1¼', 2: '2' };
   if (h == null) return null;
-  const frac = map[h] || h;
+  const frac = map[Math.round(h * 1000) / 1000] || h;
   return `${frac} HPc`;
 }
 
