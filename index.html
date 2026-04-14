@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +16,8 @@
     --hover-bg:  #5A5E9F;
     --text:      #EDEEF1;
     --muted:     #B1B3BD;
-    --bg:        #12131B;
-    --card-bg:   #161722;
+    --bg:        #161722;
+    --card-bg:   black;
     --button:    #22243F;
   }
 
@@ -46,6 +47,7 @@
     align-items: baseline;
     gap: 12px;
     box-shadow: 0 1px 4px rgba(0,0,0,.4);
+    background-color: black;
   }
   header h1 { font-size: 15px; font-weight: 800; color: var(--text); font-family: 'Nunito', sans-serif; }
 
@@ -59,7 +61,7 @@
   /* ---- Filters ---- */
   .filters {
     background: var(--card-bg);
-    border-right: 1px solid #555555;
+    border-right: 1px solid var(--border);
     box-shadow: 3px 0 8px rgba(0,0,0,.08);
     padding: 10px 12px;
     overflow-y: auto;
@@ -1071,7 +1073,7 @@ function applyCalcWeight() {
     '--text':     '#EDEEF1',
     '--muted':    '#B1B3BD',
     '--bg':       '#12131B',
-    '--card-bg':  '#161722',
+    '--card-bg':  '#000',
     '--button':   '#22243F',
   };
   const STORAGE_KEY = 'productSelectorColorsDark';
